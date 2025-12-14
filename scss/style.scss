@@ -54,7 +54,7 @@ main {
 
         input {
             font-family: "Inconsolata", sans-serif;
-            font-size: 2rem;
+            font-size: 3rem;
             border: none;
             outline: none;
             width: 100%;
@@ -67,7 +67,7 @@ main {
         }
     }
 
-    .actions {
+    .buttons {
         display: flex;
         gap: 0.5rem;
 
@@ -118,33 +118,75 @@ button#copy {
 }
 
 .security-indicator {
-    height: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .bar {
+    height: 100%;
+    width: 0;
     background-color: #ddd;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-radius: 8px;
+    transition: width 0.2s ease, background-color 0.2s ease;
+  }
 
-    #bar {
+  .bar.critical {
+    background-color: #eb5757;
+  }
+
+  .bar.warning {
+    background-color: #f2c94c;
+  }
+
+  .bar.safe {
+    background-color: #27ae60;
+  }
+
+  .bar-completed {
+    border-top-right-radius: 0;
+  }
+
+  .boxCustomize {
+    padding: 1rem 1.5rem;
+    
+
+    .title {
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 3rem;
+        color: #828282;
+    }
+
+    .password-lenght{
+        flex: 1;
+    }
+
+    .slider{
+        appearance: none;
         height: 10px;
-        background-color: #ddd;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
+        background: #dddd;
+        outline: none;
+        border-radius: 8px;
+        width: 100%;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        margin-top: 1rem;
 
-        transition: all 0.2;
-    }
+        &:hover{
+            opacity: 1;
+        } 
 
-    #bar.completed {
-        border-top-right-radius: 0;
+        &::-webkit-slider-thumb{
+            background-color: #9b51e0;
+        }
     }
-
-    #bar.critical {
-        background-color: #eb5757;
-    }
-
-    #bar.warning {
-        background-color: #f2c94c;
-    }
-
-    #bar.safe {
-        background-color: #27ae60;
-    }
+  }
 }

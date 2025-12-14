@@ -54,7 +54,7 @@ main {
 }
 .password .text input {
   font-family: "Inconsolata", sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   border: none;
   outline: none;
   width: 100%;
@@ -63,14 +63,13 @@ main {
   cursor: default;
   transition: all 0.2s;
   -webkit-user-select: none;
-  -moz-user-select: none;
-       user-select: none;
+  user-select: none;
 }
-.password .actions {
+.password .buttons {
   display: flex;
   gap: 0.5rem;
 }
-.password .actions .icon-btn {
+.password .buttons .icon-btn {
   background-color: transparent;
   border: none;
   border-radius: 8px;
@@ -81,14 +80,13 @@ main {
   align-items: center;
   justify-content: center;
 }
-.password .actions .icon-btn:hover {
+.password .buttons .icon-btn:hover {
   background-color: rgba(204, 204, 204, 0.8);
 }
-.password .actions .icon-btn img {
+.password .buttons .icon-btn img {
   width: 28px;
   height: 28px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   display: block;
 }
 
@@ -115,25 +113,62 @@ button#copy:hover {
 .security-indicator {
   height: 10px;
   background-color: #ddd;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 8px;
+  overflow: hidden;
 }
-.security-indicator #bar {
-  height: 10px;
+.security-indicator .bar {
+  height: 100%;
+  width: 0;
   background-color: #ddd;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  transition: all 0.2;
+  border-radius: 8px;
+  transition: width 0.2s ease, background-color 0.2s ease;
 }
-.security-indicator #bar.completed {
-  border-top-right-radius: 0;
-}
-.security-indicator #bar.critical {
+.security-indicator .bar.critical {
   background-color: #eb5757;
 }
-.security-indicator #bar.warning {
+.security-indicator .bar.warning {
   background-color: #f2c94c;
 }
-.security-indicator #bar.safe {
+.security-indicator .bar.safe {
   background-color: #27ae60;
-}/*# sourceMappingURL=style.css.map */
+}
+.security-indicator .bar-completed {
+  border-top-right-radius: 0;
+}
+.security-indicator .boxCustomize {
+  padding: 1rem 1.5rem;
+}
+.security-indicator .boxCustomize .title {
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+}
+.security-indicator .boxCustomize .buttons {
+  display: flex;
+  gap: 3rem;
+  color: #828282;
+}
+.security-indicator .boxCustomize .password-lenght {
+  flex: 1;
+}
+.security-indicator .boxCustomize .slider {
+  appearance: none;
+  height: 10px;
+  background: rgba(221, 221, 221, 0.8666666667);
+  outline: none;
+  border-radius: 8px;
+  width: 100%;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  margin-top: 1rem;
+}
+.security-indicator .boxCustomize .slider:hover {
+  opacity: 1;
+}
+.security-indicator .boxCustomize .slider::-webkit-slider-thumb {
+  background-color: #9b51e0;
+}
+
+/*# sourceMappingURL=style.css.map */
